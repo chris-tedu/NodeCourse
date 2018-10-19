@@ -2,18 +2,17 @@
 
 ###  node 是什么 ?
 
-0. node 具有很多别名: Nodejs、NodeJS、Node.js 、node.js 等
+1. node 具有很多别名: Nodejs、NodeJS、Node.js 、node.js 等
 
+2. node 是一个开发平台, 就像 Java 开发平台、.Net 开发平台、PHP 平台、Apple 开发平台一样。
 
-1. node 是一个开发平台, 就像 Java 开发平台、.Net 开发平台、PHP 平台、Apple 开发平台一样。
+- 何为**开发平台?** 有对应的编程语言、有语言运行时、有能实现特定功能的 API (例如: fs http)
 
-   - 何为**开发平台?** 有对应的编程语言、有语言运行时、有能实现特定功能的 API (例如: fs http)
+3. 该平台使用的编程语言:  javascript 语言。
 
-2. 该平台使用的编程语言:  javascript 语言。
+4. node.js 平台是基于 Chrom V8 javascript 引擎构建 (简称: V8 引擎)。
 
-3. node.js 平台是基于 Chrom V8 javascript 引擎构建 (简称: V8 引擎)。
-
-4. 基于 node.js 可以开发控制台程序（命令行程序）、桌面应用程序（GUI）（借助 node-webkit、electron 等框架实现）、Web 应用程序（网站）
+5. 基于 node.js 可以开发控制台程序（命令行程序）、桌面应用程序（GUI）（借助 node-webkit、electron 等框架实现）、Web 应用程序（网站）
 
 
 ### node 有哪些特点
