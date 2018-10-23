@@ -1,4 +1,4 @@
-## REPL 介绍
+### REPL 介绍
 
 1. REPL 全称: Read-Eval-Print-Loop ( **交互式解释器** )
 
@@ -35,87 +35,9 @@
    - 输入:`.exit`
      - `Ctr+C`  两次   ctr + c  : 很多地方都是退出
 
-## 创建 JavaScript 文件编写程序
+### 文件的读取和写入
 
-#### Node 创建 文件名命名常用规范
-
-- 不要用中文  (特别里面是使用 npm 安装包的时候: npm init -y)
-- 不要包含空格 
-- 不要出现node关键字 
-- 建议以 ' - '   分割单词 (例如: child-demo.js )
-
-#### Node 编写代码常用规范 
-
-- 命名: 变量名和函数名命名,按照驼峰命名 ---—   var adminUser = '123'
-
-- 引入: 引入模块时,变量名最好和模块名一样: `var fs = require('fs')`
-
-- 引号:  正常使用单引号,嵌套内部使用双引号, json 数据使用双引号  `var str = '哈哈 "呵"  哈哈'`
-
-- 动态字符串使用 反引号 :
-
-  ```js
-  ` 你好啊 ${num} `
-  ```
-
-- 空格: 操作符前后需要加空格,  比如 + - * / =    `var foo = 'bar' + 'baz'`
-
-- 分号: 表达式结尾添加分号。虽然编译器自动会给我们,可能会带来一些错误! 
-
-  ` (浏览器控制台演示一下)`
-
-  ```js
-  var x = 1;
-  var y = 2;
-  x=y;
-  (function(){  
-    console.log(x);
-  })()
-  
-  ...........................
-  //执行时会误以为是:
-  x=y(function(){}());
-  
-  // 到时候会报错: y is  not a function
-  ```
-
-
-### 案例 1. 编写 Hello world 在 node 环境下执行
-
-1. 创建 `hello-world.js`文件
-
-2. 编写: `console.log('hello world')`
-
-3. 终端打开: `node hello-world.js`  运行即可 (在 node环境下运行)
-
-   ``` js
-   注意1: node + 文件名 / 路径 
-   注意2: 文件名和路径不要手写,容易写错,,
-   注意3: 确保当前路径没有错
-   注意4: 终端命令介绍: cd/pwd/ls/ctr+c
-   ```
-
-   ​
-
-### 案例 2.  编写一个简单的函数,实现数字相加
-
-```js
-var m = 100;
-var n = 200;
-
-function sum(x,y) {
-    return x + y;
-}
-
-var num = sum(m,n);
-console.log(num);
-```
-
-
-
-### 案例 3: 文件读写案例  [重点掌握]
-
-#### 3.1. 写入文件
+#### 1. 写入文件
 
 ```js
 /**
@@ -154,7 +76,7 @@ console.log(222)
 
 
 
-#### 3.2. 演示异步  (查看 PPT)
+#### 2. 异步的概念
 
 ```js
 console.log(111);
@@ -171,7 +93,7 @@ console.log(333)
 
 
 
-#### 3.3. 读取文件
+#### 3.读取文件
 
 - 2. **读取文件** :  ` fs.readFile(file, [, options], callback);`
 
@@ -212,7 +134,7 @@ console.log(333)
     ​
 
 
-#### 3.4.  同步读取文件
+#### 4.  同步读取文件
 
 - 方法: `fs.readFileSync(path[, options])`
 - 返回值 接收数据
@@ -244,7 +166,7 @@ console.log(333)
   ```
 
 
-#### 3.5.  try…catch   (捕获异常 , 抛出错误)
+#### 5.  try…catch   (捕获异常 , 抛出错误)
 
 - 异步读文件:  throw err
 
@@ -306,7 +228,7 @@ console.log(333)
 
   ​
 
-####3.6  路径   
+####6  路径   
 
 - __dirname
 
@@ -357,10 +279,7 @@ fs.readFile(path.join(__dirname,'./data.txt'),'utf8',function (err,data) {
   // 以后遇到这种文件路径的: 全部使用 path.join(__dirname,'./....')
 ```
 
-
-
-
-#### 案例4 ：通过 node.js 编写 http 服务程序 - 极简版本   [重点掌握]
+### 通过 node.js 编写 http 服务程序
 
    ##### ☆ 步骤:
 
@@ -416,7 +335,7 @@ server.listen(9000,function () {
 
 
 
-#### 案例4优化:  [重点掌握]
+### 服务器代码优化
 
 **优化1: 乱码问题**
 
@@ -475,9 +394,197 @@ response.setHeader('Content-Type','text/plain ; charset=utf-8');  // 注意 后�
 res.end('hello <h1>world</h1>  哈哈')  //不能直接写 `<h1>`因为浏览器会自动识别
 ```
 
+### request  和 response  介绍
 
+> 用一个简单的判断 index 并返回 ok 的例子
 
-#### 案例5 :  编写 http 服务程序 — 根据 不同的 url 请求 响应不同的 :  纯文本 
+- [node HTTP 官网](https://nodejs.org/dist/latest-v6.x/docs/api/http.html)
+
+- 在 node 官网找 需要对应: **request ( http.IncomingMessage )  **和 **response ( http.ServerResponse ) **
+
+#### ☆ request 对象
+
+- 服务器解析用户提交的 http 请求报文，将结果解析到 request 对象中。凡是要获取和用户请求相关的数据都可以通过 request 对象获取
+
+- request 对象类型 <http.IncomingMessage>, 继承自stream.Readable
+
+- request 对象常用成员: 
+
+- **1. request.headers — 请求头 (对象)**     
+
+  //https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent
+
+  ```js
+  // 打印 request.headers
+  { host: 'localhost:8080',
+    connection: 'keep-alive',
+      // 人家默认的,不要动它,,知道也没用,,也改变不了
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+      //User-Agent 告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本.
+      
+    'upgrade-insecure-requests': '1',//是否可使用更高的版本进行通信
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+      //浏览器端可以接受的媒体类型,
+    'accept-encoding': 'gzip, deflate, br',
+      // 浏览器申明自己接收的编码方法 通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate）
+    'accept-language': 'zh-CN,zh;q=0.8,en;q=0.6' 
+   //浏览器申明自己接收的语言。
+  }
+  ```
+
+- **2. request.rawHeaders — 请求头 (数组)**
+
+  ```js
+  // 打印 request.rawHeaders
+  [ 'Host',
+    'localhost:8080',
+    'Connection',
+    'keep-alive',
+    'Cache-Control',
+    'max-age=0',
+    'Upgrade-Insecure-Requests',
+    '1',
+    'User-Agent',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'Accept',
+    'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding',
+    'gzip, deflate, br',
+    'Accept-Language',
+    'zh-CN,zh;q=0.8,en;q=0.6' ]
+  ```
+
+  ​
+
+- **3. request.httpVersion  — http 版本**
+
+  ```js
+  1.1 
+  ```
+
+- **4. request.method  — 请求方式**
+
+  ```js
+  GET / POST ....
+  ```
+
+- **5. request.url  — 请求 url 路径**
+
+  ```js
+  /
+  /index
+  /login/pass
+  ```
+
+#### ☆ response 对象
+
+- 在服务器端用来向用户做出响应的对象。凡是需要向用户（客户端）响应的操作，都需要通过 response 对象来进行。
+
+- response 对象类型 <http.ServerResponse>
+
+- response 对象常用成员: 
+
+- **1. response.write(chunk[, encoding]_[, callback]) — 写入数据 发送浏览器 **
+
+  - 参数1:  要写入的数据,可以是字符串 或者 二进制数据   **必填 **    <string> | <Buffer>
+
+    ` var buffer = Buffer.from('hello');`
+
+  - 参数2: 编码, 默认是 utf8 ;选填
+
+  - 参数3: 回调函数;选填
+
+- **2. response.end([data]_[, encoding]_[, callback]) — 结束响应  (★★)**
+
+  - 参数1: 结束响应前要发送的数据,  选填    <string> | <Buffer>
+  - 参数2: 编码,  选填
+  - 参数3: 回调函数,  选填
+  - 注意: 每次响应都必须调用该方法，用来结束响应
+
+  ```js
+  - This method signals to the server that all of the response headers and body have been sent; that server should consider this message complete. The method, response.end(), MUST be called on each response.
+  
+  - res.end()这个方法告诉服务器所有要发送的响应头和响应体都发送完毕了。可以人为让这次响应结束了。
+  ```
+
+  ​
+
+- **3. response.setHeader(name, value) — 设置响应报文头 (★★)** 
+
+  - 告诉浏览器解析文本是以什么格式解析,又以什么编码格式解析
+
+  ```js
+  // 可多次使用 
+  res.setHeader('Content-Type','text/plain;charset=utf-8')
+  ```
+
+- **4. response.statusCode — 设置或者读取 http 状态码**
+
+- **5. response.statusMessage — 设置或读取 http 响应状态消息**
+
+​        [MDN-HTTP response status codes](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
+
+- 注意: (顺序不要乱写,尽量参考下面)
+
+  ```js
+    // 设置响应报文头
+    res.statusCode = 400;
+    res.statusMessage = 'hehe'
+    res.setHeader('Content-Type','text/plain;charset=utf-8')
+  
+    // 设置响应报文头  (约等于上面)
+    res.writeHead(200,'OK',{
+      'Content-Type':'text/plain;charset=utf-8'
+    })
+   
+    // 写入数据,,返回给浏览器
+    res.write('哈哈哈')
+  
+    // 结束响应
+    res.end('over')
+  ```
+
+  **6. response.writeHead(statusCode [, statusMessage]_[, headers]) — 设置响应头信息  (★)**
+
+  - 参数1: 状态码
+
+  - 参数2: 状态信息
+
+  - 参数3: 响应头
+
+  - 实例代码:
+
+    ```js
+    // 示例代码：
+    res.writeHead(200, 'OK', {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Length': Buffer.byteLength(msg)
+    });
+    ```
+
+  注意:
+
+  ```js
+  1. This method must only be called once on a message and it must be called before response.end() is called.
+  
+  - 这个方法在每次请求响应前都必须被调用（只能调用一次）。并且必须在end()方法调用**前**调用
+  ```
+
+  ```js
+  2. If you call response.write() or response.end() before calling this, the implicit/mutable headers will be calculated and call this function for you.
+  
+  - 如果在调用writeHead()方法之前调用了write() 或 end()方法，系统会自动帮你调用writeHead()方法，并且会生成默认的响应头
+  ```
+
+- #### 总结
+
+  ```js
+  1. res.end() 放在最后; //不然后面设置的不起效果
+  2. setHeader/statusCode/statusMessage  和 writeHead(statusCode [, statusMessage]_[, headers]) 最好只使用一个
+  3. setHeader() 最好放在最前
+  ```
+
+### 根据 不同的 url 请求响应不同的纯文本 
 
 - **注意:**
 
@@ -535,7 +642,7 @@ res.end('hello <h1>world</h1>  哈哈')  //不能直接写 `<h1>`因为浏览器
 
   ​
 
-#### 案例6:  编写 http 服务程序 — 根据 不同的 url 请求响应不同的 :  HTML 
+### 根据 不同的 url 请求响应不同的 :  HTML 
 
 - **注意:**
 
@@ -626,19 +733,14 @@ res.end('hello <h1>world</h1>  哈哈')  //不能直接写 `<h1>`因为浏览器
 /**
   * 问题1: 我没有设置响应头  setHeaader utf-8格式,,读取文字没有乱码?
   * 问题2: 我没有设置响应头  setHeaader  text/html  它为什么能够读取出来??
-  * 问题3: data 是一个 buffer 为什么 end 不报错?
   */
 ````
-
-
-
-
 
 
 #### 补充:
 
 1. 读取文件,不需要判断文件是否存在.. 以为内部有个 error, 如果没有的话,会在 error 里面提示
-2. try catch 捕获异常,如果不适用这,,如果出现错误,程序会崩
+2. try catch 捕获异常,如果出现错误,程序会执行到catch代码块
 3. throw err : 异常只要一抛出,后面就不会再执行了
 4. res.write() 里的编码是返回什么编码格式,不代表浏览器会以这种格式解析
 5. 如果想告诉浏览以什么格式解析: 通过 res.setHeadr() 改变 Content-Type
@@ -665,4 +767,6 @@ res.end('hello <h1>world</h1>  哈哈')  //不能直接写 `<h1>`因为浏览器
 - ENOTDIR (Not a directory)
   - A component of the given pathname existed, but was not a directory as expected. Commonly raised by fs.readdir.
   - 给定的路径不是目录
+
+
 
