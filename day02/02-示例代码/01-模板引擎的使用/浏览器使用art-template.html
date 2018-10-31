@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 1. 引入 template-web.js 文件 -->
+  <script src="template-web.js"></script>
+</head>
+<body>
+
+<!-- 2. 定义一个模板 -->
+<script type="text/template" id="hello">
+  <p>大家好，我是{{name}},我今年{{age}}岁了</p>
+</script>
+
+<script>
+  // 3. 加载该模块
+  var html = template('hello',{name:'张三',age:18});
+  document.body.innerHTML = html;
+</script>
+</body>
+</html>
