@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <!-- 定义一个变量用来表示每次取出来的学生对象 -->
+  {{each students as student}}
+    <!--
+    {{$index}} 表示数据的下标
+    student对象表示的是每次从数组里获取到的数据
+   -->
+    <li>第{{$index+1}}名姓名是{{student.name}},年龄是{{student.age}},成绩是{{student.score}}</li>
+  {{/each}}
+</ul>
+</body>
+</html>
