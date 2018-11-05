@@ -66,13 +66,15 @@
 
    注意：该命令是将指定的模块安装到当前工程里，作为当前工程的一个模块，无法作为命令行使用。
 
-   ![image-20181026160921916](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181026160921916.png)
+   ![image-20181026160921916](images/image-20181026160921916.png)
 
 4. **npm i 包名 --global == npm i 包名 -g**。全局安装指定的模块。`例:npm i express -g`
 
    注意：-g是一种全局的安装方式，使用这种方法安装的模块，***不是*** 保存在当前项目的node_modules文件夹里，在全局都可以使用。
 
-   ![image-20181026160941156](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181026160941156.png)
+   ![image-20181026160941156](images/-S 和 -SD.png)
+
+   ![image-20181026160941156](images/image-20181026160941156.png)
 
 5. **npm un 包名 == npm uninstall  包名  :  卸载包()** 。 `例: npm un mime`
 
@@ -84,9 +86,9 @@
 
 9. **npm config**可以查看和修改npm配置
 
-   ![image-20181026160948198](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181026160948198.png)
+   ![image-20181026160948198](images/image-20181026160948198.png)
 
-   ![image-20181026160958413](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181026160958413.png)
+   ![image-20181026160958413](images/image-20181026160958413.png)
 
 
 ## NPM 包安装模式
@@ -353,8 +355,6 @@ var html = template(__dirname + 'test.html',{name:'<h1>张三</h1>'})
 后台渲染:
 var html = tempalte(__dirname + 'test.html',{score:67});
 ```
-
-![image-20181030163047423](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181030163047423.png)
 
 ### 循环语句
 
