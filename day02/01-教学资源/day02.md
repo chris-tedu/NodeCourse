@@ -321,8 +321,6 @@ var html = template(__dirname + 'test.html',{name:'<h1>张三</h1>'})
 前端不会解析标签，会直接显示标签里的内容
 ```
 
-![image-20181030154625373](/Users/jiangwei/Library/Application Support/typora-user-images/image-20181030154625373.png)
-
 ### 编译并输出
 
 ```javascript
@@ -404,9 +402,8 @@ base.html
 	<head>
 		<meta charset="UTF-8">
 		<title>{{block 'title'}}My Site{{/block}}</title>
-        {{block 'head'}}
-           <link type='stylesheet' href='bootstrap.css'/>
-        {{/block}}
+        <link type='stylesheet' href='bootstrap.css'/>
+        {{block 'head'}}{{/block}}
     </head>
 	<body>
 	{{block 'content'}}{{/block}}
