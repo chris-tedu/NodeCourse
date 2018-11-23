@@ -50,6 +50,7 @@ module.exports.doRegister = function (req, res, next) {
         'err_msg': '注册失败'
       });
     } else {
+      req.session.user = username;
       res.send({
         'status' : 'OK',
         'err_msg' : '注册成功',
