@@ -9,12 +9,13 @@ var chat = require('./controllers/chat');
 
 router.get('/', index.requireAuth, home.showHome);
 router.post('/login', login.doLogin);
-router.get('/login',login.showLogin);
+router.get('/login', login.showLogin);
 router.get('/register', login.showRegister);
 router.post('/register', register.doRegister);
 router.get('/checkuser', register.checkUser);
-router.get('/home',home.showHome);
-router.get('/chat',chat.showChat);
-
+router.get('/home', index.requireAuth, home.showHome);
+router.get('/chat', index.requireAuth, chat.showChat);
+router.get('/logout', login.logout);
 router.use('/public', express.static(path.join(__dirname, './public')));
+
 module.exports = router;

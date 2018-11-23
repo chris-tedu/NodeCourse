@@ -1,6 +1,12 @@
 {{extend './base.html'}}
 {{block 'title'}}聊天界面{{/block}}
-{{block 'head'}}{{/block}}
+{{block 'head'}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="../public/js/chat_ui.js"></script>
+{{/block}}
 {{block 'content'}}
-<a class="btn" href='/home'>返回首页</a><a class="btn" href='/login'>注销</a>
+<div class="container">
+  <a class="btn" href='/home'>返回首页</a><a class="btn" href='/logout'>注销</a>
+  <p>亲爱的{{username}},欢迎来到聊天室{{roomid}}</p>
+</div>
 {{/block}}

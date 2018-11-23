@@ -36,3 +36,8 @@ module.exports.showRegister = function (req, res) {
 module.exports.showLogin = function (req, res) {
   res.render('login');
 }
+
+module.exports.logout = function (req,res) {
+  req.session.destroy();
+  res.redirect('/login');
+}

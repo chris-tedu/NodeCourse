@@ -4,6 +4,8 @@ var config = require('./config');
 var router = require('./router.js');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var server = require('http').Server(app);
+var socket = require('./common/chat-server');
 
 // 指定模板引擎为art-template
 app.engine('html', require('express-art-template'));
@@ -32,6 +34,7 @@ app.use(session({
 // 指定路由。注意：指定路由的代码需要写在设置引擎代码的后面
 app.use(router);
 
-app.listen(config.port, config.host, function () {
+server.listen(config.port, config.host, function () {
   console.log(`server is running at ${config.host}:${config.port}`);
 });
+socket.connect(server);
