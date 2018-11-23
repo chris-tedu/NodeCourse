@@ -1,0 +1,19 @@
+body {
+  padding-top: 40px;
+}
+.form-login {
+  margin: 0 auto;
+  max-width: 320px;
+}
+.form-login .h3 {
+  margin-bottom: 20px;
+}
+.form-login input {
+  margin-bottom: 10px;
+}
+.submit-buttons {
+  margin-top: 10px;
+}
+.submit-buttons button[type='submit'] {
+  margin-right: 10px;
+}

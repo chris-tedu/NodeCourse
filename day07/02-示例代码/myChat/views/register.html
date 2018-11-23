@@ -1,0 +1,20 @@
+{{extend './base.html'}}
+{{block 'title'}}注册页{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../public/css/register.css">
+{{/block}}
+{{block 'content'}}
+<div class='container'>
+  <form action="/register" class="form-register" method="POST">
+    <h3 class="h3 font-weight-normal">注册聊天室</h3>
+    <span class="err" id="err-msg"></span>
+    <input required autofocus type="text" class="form-control control-label" placeholder="用户名" name="username" id="username">
+    <span id="user-err" class="err"></span>
+    <input required type="password" class="form-control" placeholder="密码" name="password" id="pwd">
+    <input required type="password" class="form-control" placeholder="确认密码" name="repwd" id="repwd">
+    <span class="err" id="pwd-err">两次密码输入不一致</span>
+    <input type="submit" class="col btn btn-primary btn-lg" id="register" value="注册" />
+  </form>
+</div>
+<script src="../public/js/register_ui.js"></script>
+{{/block}}

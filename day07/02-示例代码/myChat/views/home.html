@@ -1,0 +1,45 @@
+{{extend './base.html'}}
+{{block 'title'}}首页{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../public/css/home.css">
+{{/block}}
+{{block 'content'}}
+<div class="container">
+  <div class="row">您好{{username}},欢迎回来，请选择聊天室</div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>聊天室ONE</h4>
+          <p>With supporting text below as a natural <br />lead-in to additional content.</p>
+          <button class="btn btn-primary roombtn" roomid="1">进入</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>聊天室TWO</h4>
+          <p>With supporting text below as a natural <br />lead-in to additional content.</p>
+          <button class="btn btn-primary roombtn" roomid="2">进入</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>聊天室THREE</h4>
+          <p>With supporting text below as a natural <br />lead-in to additional content.</p>
+          <button class="btn btn-primary roombtn" roomid="3">进入</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".roombtn").click(function () {
+    window.location.href = '/chat?rommid=' + $(this).attr('roomid');
+  })
+</script>
+{{/block}}
