@@ -1,0 +1,88 @@
+.hide {
+  display: none;
+}
+
+#welcome_msg {
+  background-color: #ddd;
+}
+
+#error_msg {
+  background-color: #f00;
+}
+
+.title {
+  background-color: rgb(13, 113, 249);
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  ;
+  margin-bottom: 10px;
+}
+
+#content {
+  height: 400px;
+  padding: 0;
+  border-right: 1px solid rgba(170, 170, 170, .8);
+  border-bottom: 1px solid rgba(170, 170, 170, .8);
+}
+
+#chat-msg {
+  width: 100%;
+  height: 340px;
+  border-bottom: 1px solid rgba(170, 170, 170, .8);
+  margin-bottom: 2px;
+}
+
+li {
+  list-style: none;
+}
+
+.chat {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid rgba(170, 170, 170, .8);
+}
+
+#userarea {
+  display: block;
+  width: 90%;
+  height: 58px;
+  border: none;
+  background-color: #f5f5f5;
+  resize: none;
+  outline: none;
+  padding: 0;
+  float: left;
+  overflow: auto;
+}
+
+#send {
+  float: right;
+  height: 90%;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+#user-list {
+  list-style: none;
+  padding: 0;
+}
+
+#myself {
+  color: #f00;
+}
+
+.mymessage {
+  background-color: rgb(146, 230, 73);
+  margin-right: 10px;
+  float: right;
+}
+
+#message-list li {
+  padding: 2px 5px;
+}

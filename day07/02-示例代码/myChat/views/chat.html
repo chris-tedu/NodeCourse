@@ -3,10 +3,34 @@
 {{block 'head'}}
 <script src="/socket.io/socket.io.js"></script>
 <script src="../public/js/chat_ui.js"></script>
+<link rel="stylesheet" href="../public/css/chat.css">
 {{/block}}
 {{block 'content'}}
 <div class="container">
-  <a class="btn" href='/home'>返回首页</a><a class="btn" href='/logout'>注销</a>
-  <p>亲爱的{{username}},欢迎来到聊天室{{roomid}}</p>
+  <a class="btn" href="/home" id="backhome">返回首页</a><a class="btn" href='/logout'>注销</a>
+  <span class="hide" style="display:none" id="session-id">{{sessionid}}</span>
+  <span id="roomid" style="display:none">{{roomid}}</span>
+  <span id="socketserver" class="hide">{{socketserver}}</span>
+  <p class="hide" id="welcome_msg">亲爱的{{username}},欢迎来到聊天室{{roomid}}</p>
+  <p class="hide" id="error_msg">对不起{{username}},加入房间{{roomid}}失败</p>
+
+  <div class="title">聊天室</div>
+
+  <div class="row">
+    <div class="col-lg-8" id="content">
+      <ul id="message-list"></ul>
+
+      <div class="chat">
+        <textarea type="text" id="userarea"></textarea>
+        <button id="send" class="btn btn-primary">发送</button>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <p>群成员</p>
+      <ul id="user-list">
+
+      </ul>
+    </div>
+  </div>
 </div>
 {{/block}}
